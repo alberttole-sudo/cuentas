@@ -27,6 +27,7 @@
   --accent:#1B2F5E; --accent-ink:#F6F1E6; --accent-soft:#E7EBF4; --gold:#A8854A; --warn:#A4472A; --warn-soft:#F6E9E2;
   --ok:#3E7C5F; --ok-soft:#E1EEE7; --del:#9E2F45; --shadow:0 8px 28px rgba(15,30,61,.12);
   --bar-bg:#0F1E3D; --bar-ink:#9AA6C2; --bar-active:#E4CB94; --today-bg:#DDB86C; --today-ink:#0F1E3D;
+  --k-var:#2E4C8C; --k-plan:#C2913F; --k-fix:#9AA3B8;
   --f-display:"Instrument Serif","Iowan Old Style","Palatino Linotype",Georgia,serif;
   --f-ui:"Instrument Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --f-body:"Source Serif 4","Iowan Old Style",Georgia,serif;
@@ -36,12 +37,12 @@
   --bg:#09111F; --surface:#101B31; --ink:#EEEAE0; --muted:#8C96AE; --line:#1E2A45;
   --accent:#D2B67E; --accent-ink:#09111F; --accent-soft:#1B2844; --gold:#D2B67E; --warn:#E39A72; --warn-soft:#33221B;
   --ok:#74B796; --ok-soft:#16302A; --del:#E5788C; --shadow:0 8px 28px rgba(0,0,0,.45);
-  --bar-bg:#0C1628; --bar-ink:#7D88A3; --bar-active:#D2B67E; --today-bg:#E8C57F; --today-ink:#09111F; color-scheme:dark}}
+  --bar-bg:#0C1628; --bar-ink:#7D88A3; --bar-active:#D2B67E; --today-bg:#E8C57F; --today-ink:#09111F; --k-var:#8FA9E0; --k-plan:#D2B67E; --k-fix:#5F6A85; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#09111F; --surface:#101B31; --ink:#EEEAE0; --muted:#8C96AE; --line:#1E2A45;
   --accent:#D2B67E; --accent-ink:#09111F; --accent-soft:#1B2844; --gold:#D2B67E; --warn:#E39A72; --warn-soft:#33221B;
   --ok:#74B796; --ok-soft:#16302A; --del:#E5788C; --shadow:0 8px 28px rgba(0,0,0,.45);
-  --bar-bg:#0C1628; --bar-ink:#7D88A3; --bar-active:#D2B67E; --today-bg:#E8C57F; --today-ink:#09111F; color-scheme:dark}
+  --bar-bg:#0C1628; --bar-ink:#7D88A3; --bar-active:#D2B67E; --today-bg:#E8C57F; --today-ink:#09111F; --k-var:#8FA9E0; --k-plan:#D2B67E; --k-fix:#5F6A85; color-scheme:dark}
 
 *{box-sizing:border-box}
 html,body{min-height:100%}
@@ -241,7 +242,7 @@ ol.steps b{color:var(--ink)}
 .bigbud .top b{font-family:var(--f-display);font-weight:400;font-size:28px;line-height:1.1;font-variant-numeric:tabular-nums}
 .bigbud .top small{font-family:var(--f-ui);color:var(--muted);font-size:13px}
 .track{position:relative;height:10px;border-radius:99px;background:var(--line);margin:10px 0 8px}
-.track i{display:block;height:100%;border-radius:99px;background:var(--gold);max-width:100%}
+.track i{display:block;height:100%;border-radius:99px;background:var(--k-var);max-width:100%}
 .track.over i{background:var(--del)}
 .track .pace{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--ink);border-radius:2px}
 .bigbud p{margin:0;font-family:var(--f-ui);font-size:13px;color:var(--muted)}
@@ -337,6 +338,34 @@ ol.steps b{color:var(--ink)}
 .nospend div{flex:1;background:var(--bg);border-radius:10px;padding:8px 10px}
 .nospend b{display:block;font-family:var(--f-display);font-weight:400;font-size:26px;line-height:1.1}
 .nospend small{font-family:var(--f-ui);font-size:12px;color:var(--muted)}
+
+.ava svg{width:19px;height:19px}
+.sw{display:grid;place-items:center;color:#fff}
+.sw svg{width:18px;height:18px}
+.icons{display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:6px;padding:2px 0 10px 40px}
+.icons button{aspect-ratio:1;border-radius:10px;border:1px solid var(--line);background:var(--bg);display:grid;place-items:center;color:var(--ink);padding:0}
+.icons button[aria-pressed="true"]{background:var(--cat);color:#fff;border-color:var(--cat)}
+.icons svg{width:20px;height:20px}
+.pal-t{font-family:var(--f-ui);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:6px 0 2px 40px}
+.qbtn i svg{width:13px;height:13px}
+.cats label .ci{display:grid;color:var(--cat)}
+.cats label .ci svg{width:15px;height:15px}
+.cats input:checked+label .ci{color:#fff}
+.cic{width:28px;height:28px;border-radius:50%;background:var(--cat);color:#fff;display:grid;place-items:center}
+.cic svg{width:15px;height:15px}
+.crow .am small{font-weight:500;color:var(--muted);font-size:12px}
+.bfoot{margin:14px 0 0;padding-top:10px;border-top:1px solid var(--line);font-family:var(--f-ui);font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:3px}
+.bfoot b{color:var(--ink);font-weight:600}
+.bigbud .catrows{margin-top:16px}
+.kinds{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:10px;font-family:var(--f-ui);font-size:12.5px;color:var(--muted)}
+.kinds i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
+.kinds b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.seg.kseg{margin:0 0 6px}
+.hint.khint{margin:0 0 14px}
+.tot{font-family:var(--f-ui);font-size:13.5px;color:var(--muted);margin:12px 0 0}
+.tot b{color:var(--ink)}
+.kindlist{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;list-style:none;font-size:14px;color:var(--muted)}
+.kindlist b{color:var(--ink)}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
 @media (max-width:380px){.hday{font-size:36px}.sum b{font-size:20px}.catrow .bud{width:78px}.cathead span:last-child{width:78px}}
 </style>
@@ -369,8 +398,58 @@ const KEY = "miscuentas.v1";
 const DIAS = ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
 const MESES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
 const MES_C = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
-const COLORS = ["#2E4C8C","#4E7D63","#A87F35","#94344B","#6B4F93","#2E7783","#B0613B","#5D667C","#3F6E9E","#7A8B3A"];
+const COLORS = ["#2E4C8C","#4E7D63","#A87F35","#94344B","#6B4F93","#2E7783","#B0613B","#5D667C","#3F6E9E","#7A8B3A","#1B2F5E","#C2913F","#B5476A","#3D8A8A","#8A5A44","#4F5FA8","#5E8F3E","#A4472A","#7B6FA6","#2F6B4F","#C26D8E","#43536E"];
 const DAY = 864e5;
+
+const ICONS = {
+  cesta:'<path d="M4.5 10h15l-1.6 8.6a2 2 0 0 1-2 1.6H8.1a2 2 0 0 1-2-1.6z"/><path d="M8.5 10l3.5-6 3.5 6"/><path d="M9.5 13.5v3.5M14.5 13.5v3.5"/>',
+  carrito:'<circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/><path d="M3 4h2l2.4 11h11l2-8H6.2"/>',
+  cubiertos:'<path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10"/><path d="M17 21V3c-2 0-3 2-3 6v4h3"/>',
+  cafe:'<path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3v3M12 3v3"/>',
+  cerveza:'<path d="M6 8h10v11a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2z"/><path d="M16 11h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2"/><path d="M6 8a3 3 0 0 1 3-4 3 3 0 0 1 5 0 2.5 2.5 0 0 1 2 4"/><path d="M10 12v5M13 12v5"/>',
+  copa:'<path d="M8 3h8l-.5 5a3.5 3.5 0 0 1-7 0z"/><path d="M12 11.5V20M8.5 21h7"/>',
+  entrada:'<path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"/><path d="M14 7v2M14 11v2M14 15v2"/>',
+  cine:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14M17 5v14M3 9.5h4M3 14.5h4M17 9.5h4M17 14.5h4"/>',
+  musica:'<path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/>',
+  juego:'<rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 10.5v4M5 12.5h4"/><circle cx="15.5" cy="11.5" r=".9"/><circle cx="17.5" cy="14" r=".9"/>',
+  avion:'<path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>',
+  sombrilla:'<path d="M12 3a9 9 0 0 1 9 9H3a9 9 0 0 1 9-9z"/><path d="M12 12v7a2 2 0 0 0 4 0"/>',
+  coche:'<path d="M5 11l1.6-4.2A2 2 0 0 1 8.5 5.5h7a2 2 0 0 1 1.9 1.3L19 11"/><rect x="3" y="11" width="18" height="6" rx="2"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/>',
+  bus:'<rect x="5" y="3" width="14" height="15" rx="2"/><path d="M5 11h14M9 21v-3M15 21v-3"/><circle cx="8.5" cy="14.5" r=".8"/><circle cx="15.5" cy="14.5" r=".8"/>',
+  tren:'<rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 10h14M12 3v7M8 21l2-4M16 21l-2-4"/>',
+  bici:'<circle cx="6" cy="16" r="3.5"/><circle cx="18" cy="16" r="3.5"/><path d="M6 16l4-7h5l3 7M10 9l2 7h-6M14 5h2"/>',
+  gasolina:'<path d="M4 21V5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v16"/><path d="M3 21h13M4 10h11"/><path d="M15 8h2a2 2 0 0 1 2 2v6a1.5 1.5 0 0 0 3 0V8l-3-3"/>',
+  casa:'<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',
+  luz:'<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/>',
+  agua:'<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/>',
+  wifi:'<path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r=".9"/>',
+  movil:'<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',
+  tele:'<rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M10.5 8.5l4 2.5-4 2.5z"/>',
+  corazon:'<path d="M12 20s-7-4.4-9-9A4.8 4.8 0 0 1 12 6a4.8 4.8 0 0 1 9 5c-2 4.6-9 9-9 9z"/>',
+  pastilla:'<path d="M10.5 20.5a5 5 0 0 1-7-7l6-6a5 5 0 0 1 7 7z"/><path d="M8.5 8.5l7 7"/>',
+  pesa:'<path d="M6.5 6.5v11M17.5 6.5v11M3.5 9v6M20.5 9v6M6.5 12h11"/>',
+  tijeras:'<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.1 8.1L20 20M8.1 15.9L20 4"/>',
+  camiseta:'<path d="M8 3l-5 3 2 4 2-1v12h10V9l2 1 2-4-5-3a4 4 0 0 1-8 0z"/>',
+  bolsa:'<path d="M5 8h14l-1 13H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>',
+  regalo:'<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13"/><path d="M12 8S10.5 3 8 4s0 4 4 4zM12 8s1.5-5 4-4 0 4-4 4z"/>',
+  libro:'<path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H20v15H5.5A1.5 1.5 0 0 0 4 19.5z"/><path d="M4 19.5A1.5 1.5 0 0 0 5.5 21H20v-3"/>',
+  estudios:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v6"/>',
+  mascota:'<circle cx="5.5" cy="10" r="1.8"/><circle cx="9" cy="5.5" r="1.8"/><circle cx="15" cy="5.5" r="1.8"/><circle cx="18.5" cy="10" r="1.8"/><path d="M12 11c-3 0-5.5 4-5.5 6.5 0 2 1.5 3 3 3 1 0 1.5-.5 2.5-.5s1.5.5 2.5.5c1.5 0 3-1 3-3C17.5 15 15 11 12 11z"/>',
+  seguro:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>',
+  maletin:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>',
+  monedas:'<ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/>',
+  tarjeta:'<rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6 15h4"/>',
+  grafica:'<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
+  estrella:'<path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/>',
+  etiqueta:'<path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.2"/>',
+  puntos:'<circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/>'
+};
+const icon = (n,s) => '<svg viewBox="0 0 24 24"'+(s?' width="'+s+'" height="'+s+'"':'')+' fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(ICONS[n]||ICONS.etiqueta)+'</svg>';
+function guessIcon(c){
+  const n = norm(c.name), map = [["aliment","cesta"],["super","carrito"],["restaur","cubiertos"],["comida","cubiertos"],["ocio","entrada"],["caf","cafe"],["bar","cerveza"],["viaj","avion"],["transp","bus"],["coche","coche"],["gasol","gasolina"],["casa","casa"],["hogar","casa"],["suscrip","tele"],["salud","corazon"],["farm","pastilla"],["gim","pesa"],["deport","pesa"],["ropa","camiseta"],["regal","regalo"],["educ","estudios"],["estud","estudios"],["mascot","mascota"],["segur","seguro"],["nomina","maletin"],["sueldo","maletin"],["trabaj","maletin"],["extra","monedas"]];
+  const hit = map.find(([k]) => n.includes(k));
+  return hit ? hit[1] : c.type==="i" ? "grafica" : "etiqueta";
+}
 
 /* ---------- utilidades ---------- */
 const pad = n => String(n).padStart(2,"0");
@@ -408,24 +487,24 @@ const sum = list => list.reduce((s,m)=>s+m.amount,0);
 /* ---------- datos ---------- */
 const S = (...names) => names.map(n => ({id:norm(n).replace(/[^a-z0-9]+/g,"-"), name:n}));
 const DEF_CATS = () => [
-  {id:"alim",name:"Alimentación",type:"g",color:COLORS[1],budget:0,subs:S("Supermercado","Mercado","Panadería")},
-  {id:"ocio",name:"Ocio",type:"g",color:COLORS[4],budget:0,subs:S("Restaurante","Pub","Cafetería","Cine","Conciertos","Viajes")},
-  {id:"trans",name:"Transporte",type:"g",color:COLORS[5],budget:0,subs:S("Gasolina","Metro y bus","Taxi","Parking")},
-  {id:"casa",name:"Casa",type:"g",color:COLORS[0],budget:0,subs:S("Alquiler","Luz","Agua","Internet","Limpieza")},
-  {id:"subs",name:"Suscripciones",type:"g",color:COLORS[8],budget:0,subs:S("Series","Música","Apps")},
-  {id:"salud",name:"Salud",type:"g",color:COLORS[3],budget:0,subs:S("Farmacia","Gimnasio","Médico")},
-  {id:"ropa",name:"Ropa",type:"g",color:COLORS[2],budget:0,subs:S("Ropa","Calzado","Complementos")},
-  {id:"otros",name:"Otros",type:"g",color:COLORS[7],budget:0,subs:[]},
-  {id:"nomina",name:"Nómina",type:"i",color:COLORS[1],budget:0,subs:[]},
-  {id:"extra",name:"Extras",type:"i",color:COLORS[9],budget:0,subs:S("Ventas","Regalos")},
-  {id:"otrosi",name:"Otros ingresos",type:"i",color:COLORS[7],budget:0,subs:[]}
+  {id:"alim",name:"Alimentación",type:"g",color:COLORS[1],icon:"cesta",budget:0,subs:S("Supermercado","Mercado","Panadería")},
+  {id:"ocio",name:"Ocio",type:"g",color:COLORS[4],icon:"entrada",budget:0,subs:S("Restaurante","Pub","Cafetería","Cine","Conciertos","Viajes")},
+  {id:"trans",name:"Transporte",type:"g",color:COLORS[5],icon:"bus",budget:0,subs:S("Abono","Gasolina","Metro y bus","Taxi","Parking")},
+  {id:"casa",name:"Casa",type:"g",color:COLORS[0],icon:"casa",budget:0,subs:S("Alquiler","Luz","Agua","Internet","Limpieza")},
+  {id:"subs",name:"Suscripciones",type:"g",color:COLORS[8],icon:"tele",budget:0,subs:S("Series","Música","Apps")},
+  {id:"salud",name:"Salud",type:"g",color:COLORS[3],icon:"corazon",budget:0,subs:S("Farmacia","Gimnasio","Médico")},
+  {id:"ropa",name:"Ropa",type:"g",color:COLORS[2],icon:"camiseta",budget:0,subs:S("Ropa","Calzado","Complementos")},
+  {id:"otros",name:"Otros",type:"g",color:COLORS[7],icon:"puntos",budget:0,subs:[]},
+  {id:"nomina",name:"Nómina",type:"i",color:COLORS[1],icon:"maletin",budget:0,subs:[]},
+  {id:"extra",name:"Extras",type:"i",color:COLORS[9],icon:"monedas",budget:0,subs:S("Ventas","Regalos")},
+  {id:"otrosi",name:"Otros ingresos",type:"i",color:COLORS[7],icon:"grafica",budget:0,subs:[]}
 ];
 let state = null;
 try { const raw = localStorage.getItem(KEY); if (raw) state = JSON.parse(raw); } catch(e) {}
-if (!state || !Array.isArray(state.movs) || !state.v2 || (!state.v3 && state.movs.every(m => m.ex))) state = seed();
-state.v3 = true;
+if (!state || !Array.isArray(state.movs) || !state.v2 || (!state.v4 && state.movs.every(m => m.ex))) state = seed();
+state.v3 = true; state.v4 = true;
 if (!Array.isArray(state.cats)) state.cats = DEF_CATS();
-state.cats.forEach(c => { if (!Array.isArray(c.subs)) c.subs = []; });
+state.cats.forEach(c => { if (!Array.isArray(c.subs)) c.subs = []; if (!c.icon) c.icon = guessIcon(c); });
 if (!Array.isArray(state.fixed)) state.fixed = [];
 if (!Array.isArray(state.goals)) state.goals = [];
 if (!Array.isArray(state.challenges)) state.challenges = [];
@@ -437,7 +516,7 @@ function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch
 
 function seed(){
   const cats = DEF_CATS();
-  const B = {alim:8000, ocio:5000, trans:2500};
+  const B = {alim:8000, ocio:5000, otros:2000};
   cats.forEach(c => { if (B[c.id]) c.budget = B[c.id]; });
   const cur = ym(today()), start = addMonths(cur,-3), td = today();
   const fixed = [
@@ -448,7 +527,7 @@ function seed(){
   ];
   let r = 11; const rnd = () => (r = (r*16807) % 2147483647) / 2147483647;
   const movs = [];
-  const plan = [["alim","supermercado","Mercadona",4,30,70],["alim","mercado","Mercado",1,10,25],["ocio","restaurante","Cena fuera",2,22,45],["ocio","pub","Cervezas",2,8,18],["ocio","cafeteria","Café",7,1.5,3],["ocio","cine","Cine",1,8,15],["trans","gasolina","Gasolina",2,30,50],["trans","metro-y-bus","Metro",3,2,6],["ropa","ropa","Zara",1,25,60],["salud","farmacia","Farmacia",1,5,18]];
+  const plan = [["alim","supermercado","Mercadona",4,30,70],["alim","mercado","Mercado",1,10,25],["ocio","restaurante","Cena fuera",2,22,45],["ocio","pub","Cervezas",2,8,18],["ocio","cafeteria","Café",7,1.5,3],["ocio","cine","Cine",1,8,15],["trans","gasolina","Gasolina",2,30,50],["trans","metro-y-bus","Metro",3,2,6],["ropa","ropa","Zara",1,25,60],["salud","farmacia","Farmacia",1,5,18],["otros","","Papelería",1,4,12],["otros","","Peluquería",1,12,18]];
   for (let k=0;k<4;k++){
     const m = addMonths(start,k), last = lastDayOf(m);
     plan.forEach(([cat,sub,note,n,lo,hi]) => {
@@ -459,6 +538,7 @@ function seed(){
       }
     });
   }
+  for (let k=0;k<4;k++){ const m = addMonths(start,k); let d = m === cur ? monday(td) : m+"-0"+(2+k); if (d < m+"-01") d = m+"-01"; if (d <= td) movs.push({id:uid(),type:"g",amount:5460,cat:"trans",sub:"abono",date:d,note:"Abono transporte",plan:true,ex:true}); }
   for (let i = movs.length-1; i >= 0; i--) if (movs[i].sub === "restaurante" && movs[i].date >= monday(td)) movs.splice(i,1);
   const bday = addDays(td,-10);
   [["ropa","complementos","Regalo para Laura",3500],["ocio","restaurante","Cena de cumpleaños",4200],["ocio","pub","Copas",1800]].forEach(([cat,sub,note,amount]) => movs.push({id:uid(),type:"g",amount,cat,sub,date:bday,note,tags:["Cumpleaños de Laura"],ex:true}));
@@ -474,7 +554,7 @@ function seed(){
     {id:uid(),name:"Una semana sin comer fuera",cat:"ocio",sub:"restaurante",kind:"zero",limit:0,start:monday(td),days:7,ex:true},
     {id:uid(),name:"Menos de 25 € en cafeterías este mes",cat:"ocio",sub:"cafeteria",kind:"max",limit:2500,start:ym(td)+"-01",days:lastDayOf(ym(td)),ex:true}
   ];
-  return {v2:true, v3:true, movs, cats, fixed, goals, challenges, weekBudget:15000, since:Date.now(), lastWeekSeen:addDays(monday(td),-7)};
+  return {v2:true, v3:true, v4:true, movs, cats, fixed, goals, challenges, since:Date.now(), lastWeekSeen:addDays(monday(td),-7)};
 }
 
 /* Genera los movimientos de los fijos que ya tocan */
@@ -497,14 +577,15 @@ const subOf = (cat,sub) => { if (!sub) return null; const s = catOf(cat).subs.fi
 const inRange = (a,b) => state.movs.filter(m => m.date >= a && m.date <= b);
 function totals(list){ let i=0,g=0; list.forEach(m => m.type==="i" ? i+=m.amount : g+=m.amount); return {i,g,b:i-g}; }
 /* Para los presupuestos semanales solo cuentan los gastos que no son fijos */
-const varG = list => list.filter(m => m.type==="g" && !m.fixed);
+const varG = list => list.filter(m => m.type==="g" && !m.fixed && !m.plan);
+const budCats = () => state.cats.filter(c => c.type==="g" && c.budget > 0);
+const totalBudget = () => budCats().reduce((s,c) => s+c.budget, 0);
+function spentBudgeted(d){ const ids = budCats().map(c => c.id), a = monday(d); return sum(varG(inRange(a,addDays(a,6))).filter(m => ids.includes(m.cat))); }
 function spentWeek(cat,s){ const a = monday(s); return sum(varG(inRange(a,addDays(a,6))).filter(x => !cat || x.cat===cat)); }
 function weekOk(w){
-  const v = varG(inRange(w, addDays(w,6)));
-  if (state.weekBudget > 0) return sum(v) <= state.weekBudget;
-  const bc = state.cats.filter(c => c.type==="g" && c.budget > 0);
-  if (!bc.length) return null;
-  return bc.every(c => sum(v.filter(m => m.cat===c.id)) <= c.budget);
+  const ids = budCats().map(c => c.id);
+  if (!ids.length) return null;
+  return sum(varG(inRange(w, addDays(w,6))).filter(m => ids.includes(m.cat))) <= totalBudget();
 }
 function firstDate(){ let f = fmt(new Date(state.since)); state.movs.forEach(m => { if (!m.fixed && m.date < f) f = m.date; }); return f; }
 function streak(){ let n = 0, w = addDays(monday(today()),-7); const start = monday(firstDate()); while (w >= start && weekOk(w) === true && n < 520) { n++; w = addDays(w,-7); } return n; }
@@ -515,8 +596,8 @@ function history(){
   state.movs.forEach(m => {
     if (!m.note || m.fixed) return;
     const k = norm(m.note), e = map[k];
-    if (!e) map[k] = {note:m.note,type:m.type,cat:m.cat,sub:m.sub||"",amount:m.amount,count:1,last:m.date};
-    else { e.count++; if (m.date >= e.last) Object.assign(e,{note:m.note,type:m.type,cat:m.cat,sub:m.sub||"",amount:m.amount,last:m.date}); }
+    if (!e) map[k] = {note:m.note,type:m.type,cat:m.cat,sub:m.sub||"",plan:!!m.plan,amount:m.amount,count:1,last:m.date};
+    else { e.count++; if (m.date >= e.last) Object.assign(e,{note:m.note,type:m.type,cat:m.cat,sub:m.sub||"",plan:!!m.plan,amount:m.amount,last:m.date}); }
   });
   return Object.values(map);
 }
@@ -549,6 +630,7 @@ function render(){
 /* ---------- piezas comunes ---------- */
 const ICO = (p,s) => '<svg viewBox="0 0 24 24" width="'+(s||13)+'" height="'+(s||13)+'" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">'+p+'</svg>';
 const I_REP = ICO('<path d="M17 2l3 3-3 3"/><path d="M4 11V9a4 4 0 0 1 4-4h12"/><path d="M7 22l-3-3 3-3"/><path d="M20 13v2a4 4 0 0 1-4 4H4"/>');
+const I_PLAN = ICO('<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/>');
 const I_X = ICO('<path d="M6 6l12 12M18 6L6 18"/>',16);
 const I_SEARCH = ICO('<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',14);
 const AL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>';
@@ -597,10 +679,11 @@ function movRow(m){
   const where = esc(c.name)+(sn && title!==sn ? ' › '+esc(sn) : '');
   if (m.note || sn) sub.push(where);
   if (m.fixed) sub.push(I_REP+' Fijo');
+  if (m.plan) sub.push(I_PLAN+' Planificado');
   (m.tags||[]).forEach(t => sub.push('<span class="ht">#'+esc(t)+'</span>'));
   if (m.ex) sub.push('<span class="tag">Ejemplo</span>');
   return '<li class="mrow" data-id="'+m.id+'"><div class="swbg">Borrar</div><button type="button" class="mov" style="--cat:'+c.color+'">'
-    +'<span class="ava">'+esc(c.name.charAt(0))+'</span>'
+    +'<span class="ava">'+icon(c.icon)+'</span>'
     +'<span class="mtx"><b>'+esc(title)+'</b>'+(sub.length?'<span>'+sub.join(" · ")+'</span>':'')+'</span>'
     +'<span class="amt'+(m.type==="i"?' in':'')+'">'+(m.type==="i"?'+':'−')+money(m.amount)+'</span></button></li>';
 }
@@ -649,7 +732,7 @@ function bindSwipe(li, card, onLeft){
 function quickRow(){
   const f = frequent(); if (!f.length) return '';
   return '<div class="section-t"><span>Rápidos</span><small>Tus gastos habituales</small></div><div class="quick">'
-    + f.map((h,i) => { const c = catOf(h.cat); return '<button type="button" class="qbtn" data-q="'+i+'" style="--cat:'+c.color+'"><i>'+esc(c.name.charAt(0))+'</i>'+esc(h.note)+' <b>'+money(h.amount)+'</b></button>'; }).join("") + '</div>';
+    + f.map((h,i) => { const c = catOf(h.cat); return '<button type="button" class="qbtn" data-q="'+i+'" style="--cat:'+c.color+'"><i>'+icon(c.icon)+'</i>'+esc(h.note)+' <b>'+money(h.amount)+'</b></button>'; }).join("") + '</div>';
 }
 function bindQuick(date){
   const f = frequent();
@@ -679,7 +762,7 @@ function breakdown(list, withBudget, prevList){
     }
     const sb = subBy[id] || {}, sk = Object.keys(sb).sort((a,b)=>sb[b]-sb[a]);
     const subsLine = (sk.length > 1 || (sk.length===1 && sk[0])) ? '<div class="subs-line">'+sk.map(k => '<span>'+esc(subOf(id,k) || (k ? 'Otra' : 'General'))+' '+money0(sb[k])+'</span>').join("")+'</div>' : '';
-    return '<div class="crow'+cls+'" style="--cat:'+c.color+'"><span class="dot"></span><span class="nm">'+esc(c.name)+'</span><span class="am">'+money(v)+'</span><div class="pc">'+pc+'</div>'+subsLine+'</div>';
+    return '<div class="crow'+cls+'" style="--cat:'+c.color+'"><span class="cic">'+icon(c.icon)+'</span><span class="nm">'+esc(c.name)+'</span><span class="am">'+money(v)+'</span><div class="pc">'+pc+'</div>'+subsLine+'</div>';
   }).join("");
   return '<div class="panel">'+stack+'<div class="catrows">'+rows+'</div></div>';
 }
@@ -715,23 +798,43 @@ function pairChart(data, label){
   return s+'</svg><div class="legend"><span><i style="background:var(--ok)"></i>Ingresos</span><span><i style="background:var(--accent)"></i>Gastos</span></div>';
 }
 
-/* Presupuesto total de la semana */
+/* Presupuesto semanal: la suma de los límites de cada categoría */
 function weekBudgetPanel(a){
-  const B = state.weekBudget; if (!B) return '';
-  const b = addDays(a,6), td = today(), spent = sum(varG(inRange(a,b))), r = spent/B;
-  const isCur = td >= a && td <= b, past = td > b;
-  let msg, bad = spent > B;
+  const bc = budCats().slice().sort((p,q) => q.budget-p.budget), b = addDays(a,6), td = today(), wl = inRange(a,b), v = varG(wl);
+  const head = '<div class="section-t"><span>Presupuesto semanal</span><small>Solo gastos variables</small></div>';
+  if (!bc.length) return head + '<div class="empty"><b>Sin presupuesto</b>En Ajustes, pon un límite semanal a las categorías que quieras vigilar: Ocio, Alimentación…</div>';
+  const B = totalBudget(), ids = bc.map(c => c.id), spent = sum(v.filter(m => ids.includes(m.cat))), r = spent/B;
+  const isCur = td >= a && td <= b, past = td > b, bad = spent > B;
+  let msg;
   if (bad) msg = 'Te has pasado '+money0(spent-B)+' esta semana.';
   else if (isCur) { const left = diffDays(td,b)+1; msg = 'Quedan '+money0(B-spent)+' · unos '+money0((B-spent)/left)+' al día hasta el domingo.'; }
   else if (past) msg = 'Semana cumplida: te sobraron '+money0(B-spent)+'.';
   else msg = 'Quedan '+money0(B-spent)+'.';
   const pace = isCur ? '<span class="pace" style="left:'+((diffDays(a,td)+1)/7*100)+'%" title="Día de la semana"></span>' : '';
+  const rows = bc.map(c => {
+    const vv = sum(v.filter(m => m.cat===c.id)), rr = vv/c.budget;
+    const cls = rr > 1 ? " over" : rr >= .8 ? " near" : "";
+    const st = rr > 1 ? '<span class="status over">+'+money0(vv-c.budget)+'</span>' : '<span class="status '+(rr>=.8?'near':'okk')+'">Quedan '+money0(c.budget-vv)+'</span>';
+    return '<div class="crow'+cls+'" style="--cat:'+c.color+'"><span class="cic">'+icon(c.icon)+'</span><span class="nm">'+esc(c.name)+'</span><span class="am">'+money0(vv)+' <small>/ '+money0(c.budget)+'</small></span><div class="pc"><span class="meter"><i style="width:'+Math.min(100,rr*100)+'%"></i></span>'+st+'</div></div>';
+  }).join("");
+  const outside = sum(v.filter(m => !ids.includes(m.cat))), planned = wl.filter(m => m.type==="g" && m.plan), fixedW = sum(wl.filter(m => m.type==="g" && m.fixed));
+  const foot = [];
+  if (outside) foot.push('<span>Otros gastos variables sin límite: <b>'+money0(outside)+'</b></span>');
+  if (planned.length) foot.push('<span>Planificados (no cuentan): <b>'+money0(sum(planned))+'</b> · '+planned.map(m => esc(m.note || subOf(m.cat,m.sub) || catOf(m.cat).name)).join(", ")+'</span>');
+  if (fixedW) foot.push('<span>Fijos (no cuentan): <b>'+money0(fixedW)+'</b></span>');
   const st = streak();
-  return '<div class="section-t"><span>Presupuesto semanal</span><small>Sin contar fijos</small></div><div class="panel bigbud">'
+  return head + '<div class="panel bigbud">'
     +'<div class="top"><b>'+money0(spent)+'</b><small>de '+money0(B)+'</small></div>'
     +'<div class="track'+(bad?' over':'')+'" role="img" aria-label="Llevas el '+Math.round(r*100)+' % del presupuesto"><i style="width:'+Math.min(100,r*100)+'%"></i>'+pace+'</div>'
     +'<p'+(bad?' class="bad"':'')+'>'+msg+'</p>'
-    +(st ? '<span class="streak">Racha: '+st+' semana'+(st>1?'s':'')+' cumpliendo</span>' : '')+'</div>';
+    +(st ? '<span class="streak">Racha: '+st+' semana'+(st>1?'s':'')+' cumpliendo</span>' : '')
+    +'<div class="catrows">'+rows+'</div>'
+    +(foot.length ? '<div class="bfoot">'+foot.join("")+'</div>' : '')+'</div>';
+}
+function kindsLine(list){
+  const g = list.filter(m => m.type==="g"); if (!g.length) return '';
+  const f = sum(g.filter(m => m.fixed)), p = sum(g.filter(m => m.plan)), v = sum(g) - f - p;
+  return '<div class="kinds"><span>Variables <b>'+money0(v)+'</b></span><span>Planificados <b>'+money0(p)+'</b></span><span>Fijos <b>'+money0(f)+'</b></span></div>';
 }
 
 /* Metas de ahorro */
@@ -763,7 +866,7 @@ function forecastPanel(m){
     +'<div class="lbl2">'+(B>=0?'Acabarías el mes ahorrando unos':'Acabarías el mes en negativo, unos')+'</div>'
     +'<div class="big '+(B>=0?'pos':'neg')+'">'+(B>=0?'+':'')+money0(B)+'</div>'
     +'<div class="rowx"><span>Gastos previstos <b>'+money0(G)+'</b></span><span>Ingresos previstos <b>'+money0(I)+'</b></span></div>'
-    +'<p>Calculado con '+basis+' (unos '+money0(rate)+' al día, sin fijos) y los fijos que faltan por llegar.</p></div>';
+    +'<p>Calculado con '+basis+' (unos '+money0(rate)+' al día en gastos variables) y los fijos que faltan por llegar.</p></div>';
 }
 
 /* ---------- calendario de gasto ---------- */
@@ -771,7 +874,7 @@ function heatPanel(m){
   const [a,b] = monthRange(m), td = today(), last = lastDayOf(m), offset = (parse(a).getDay()+6)%7;
   const vals = []; for (let d=1; d<=last; d++){ const s = m+"-"+pad(d); vals.push({s, v: sum(varG(inRange(s,s)))}); }
   const max = Math.max(1, ...vals.map(x => x.v));
-  let h = '<div class="section-t"><span>Calendario de gasto</span><small>Sin contar fijos</small></div><div class="panel"><div class="heat">'
+  let h = '<div class="section-t"><span>Calendario de gasto</span><small>Solo gastos variables</small></div><div class="panel"><div class="heat">'
     + ["L","M","X","J","V","S","D"].map(w => '<div class="wdh">'+w+'</div>').join("")
     + '<div></div>'.repeat(offset);
   vals.forEach(x => {
@@ -859,7 +962,7 @@ function openChallenge(c){
     +'<div class="two"><div class="field"><label for="fDays">Duración</label><select id="fDays"><option value="3">3 días</option><option value="7" selected>1 semana</option><option value="14">2 semanas</option><option value="30">30 días</option></select></div>'
     +'<div class="field"><label for="fStart">Empieza</label><input id="fStart" type="date" value="'+today()+'"></div></div>'
     +'<div class="field"><label for="fName">Nombre (opcional)</label><input id="fName" maxlength="50" autocomplete="off" placeholder="Una semana sin comer fuera"></div>'
-    +'<p class="hint">Los gastos fijos no cuentan para los retos.</p>'
+    +'<p class="hint">Los gastos fijos y planificados no cuentan para los retos.</p>'
     +'<div class="actions"><span class="grow"></span><button class="btn" type="button" id="fCancel">Cancelar</button><button class="btn primary" type="submit">Empezar reto</button></div></form></div>';
   const form = document.getElementById("form");
   form.addEventListener("change", e => {
@@ -904,12 +1007,11 @@ function renderWeek(){
   const range = da.getMonth()===db.getMonth() ? da.getDate()+'–'+db.getDate()+' <em>'+MES_C[db.getMonth()]+'</em>' : shortDate(a)+' – <em>'+shortDate(b)+'</em>';
   const pa = addDays(a,-7), pb = isCur ? addDays(pa, diffDays(a,td)) : addDays(pa,6), prev = inRange(pa,pb);
   let h = header((isCur?'Esta semana · ':'')+'Semana '+isoWeek(a)+' · '+db.getFullYear(), range, "w");
-  h += summary(t) + compareLine(t.g, totals(prev).g, isCur ? 'la semana pasada a estas alturas' : 'la semana anterior') + banners();
+  h += summary(t) + compareLine(t.g, totals(prev).g, isCur ? 'la semana pasada a estas alturas' : 'la semana anterior') + kindsLine(list) + banners();
   h += weekBudgetPanel(a);
   if (isCur) h += quickRow();
   h += challengesPanel();
-  const hasBud = state.cats.some(c => c.type==="g" && c.budget>0);
-  if (hasBud || list.some(m=>m.type==="g")) h += '<div class="section-t"><span>'+(hasBud?'Por categoría y presupuesto':'Por categoría')+'</span>'+(hasBud?'':'<small>Pon presupuestos en Ajustes</small>')+'</div>'+breakdown(list,true,prev);
+  if (list.some(m=>m.type==="g")) h += '<div class="section-t"><span>Todo el gasto por categoría</span><small>Con fijos y planificados</small></div>'+breakdown(list,false,prev);
   h += '<div class="section-t"><span>Gasto por día</span><small>Media '+money0(t.g/7)+' / día</small></div><div class="panel">'+weekChart()+'</div>';
   h += '<div class="section-t"><span>Movimientos</span><small>'+list.length+'</small></div>';
   h += list.length ? groupedList(list) : '<div class="empty"><b>Semana sin movimientos</b>Pulsa «Añadir» para apuntar el primero.</div>';
@@ -925,7 +1027,7 @@ function renderMonth(){
   const pb = isCur ? pm+"-"+pad(Math.min(parse(td).getDate(), lastDayOf(pm))) : pbFull, prev = inRange(pa,pb);
   let h = header((isCur?'Este mes · ':'')+y, cap(MESES[mi]), "m");
   h += summary(t) + compareLine(t.g, totals(prev).g, isCur ? 'el mes pasado a estas alturas' : 'el mes anterior') + banners();
-  h += forecastPanel(m) + heatPanel(m);
+  h += kindsLine(list) + forecastPanel(m) + heatPanel(m);
   h += '<div class="section-t"><span>Gasto por categoría</span><small>Comparado con '+MESES[+pm.slice(5)-1]+'</small></div>';
   h += breakdown(list,false,prev) || '<div class="empty"><b>Sin gastos este mes</b>Cuando apuntes gastos verás aquí en qué se va el dinero.</div>';
   const ups = state.fixed.filter(f => f.start <= m && !(f.gen||[]).includes(m)).map(f => ({f, date: m+"-"+pad(Math.min(f.day,lastDayOf(m)))})).filter(x => x.date > td).sort((p,q)=>p.date.localeCompare(q.date));
@@ -1002,11 +1104,11 @@ function renderSettings(){
   const lb = state.lastBackup ? Math.floor((Date.now()-state.lastBackup)/DAY) : null;
   const lbTxt = lb === null ? "Todavía no has hecho ninguna copia." : lb === 0 ? "Última copia: hoy." : lb === 1 ? "Última copia: ayer." : "Última copia: hace "+lb+" días.";
   const catBlock = type => '<div class="catlist">'+(type==="g"?'<div class="cathead"><span>Categoría</span><span>Límite/semana</span></div>':'')
-    + state.cats.filter(c => c.type===type).map(c => '<div><div class="catrow" style="--cat:'+c.color+'"><button class="sw" type="button" data-pal="'+c.id+'" aria-label="Cambiar color de '+esc(c.name)+'"></button>'
+    + state.cats.filter(c => c.type===type).map(c => '<div><div class="catrow" style="--cat:'+c.color+'"><button class="sw" type="button" data-pal="'+c.id+'" aria-expanded="'+(paletteFor===c.id)+'" aria-label="Cambiar color e icono de '+esc(c.name)+'">'+icon(c.icon)+'</button>'
       +'<input class="nmi" type="text" id="cn-'+c.id+'" data-cat="'+c.id+'" value="'+esc(c.name)+'" maxlength="24" aria-label="Nombre">'
       +(type==="g"?'<input class="bud" type="text" inputmode="decimal" id="cb-'+c.id+'" data-bud="'+c.id+'" value="'+toInput(c.budget)+'" placeholder="Sin límite" aria-label="Presupuesto semanal en euros">':'')
       +'<button class="x" type="button" data-delcat="'+c.id+'" aria-label="Borrar '+esc(c.name)+'">'+I_X+'</button></div>'
-      +(paletteFor===c.id ? '<div class="palette">'+COLORS.map(col => '<button type="button" style="--cat:'+col+'" data-col="'+col+'" data-for="'+c.id+'" aria-pressed="'+(col===c.color)+'" aria-label="Color"></button>').join("")+'</div>' : '')
+      +(paletteFor===c.id ? '<div class="pal-t">Color</div><div class="palette">'+COLORS.map(col => '<button type="button" style="--cat:'+col+'" data-col="'+col+'" data-for="'+c.id+'" aria-pressed="'+(col===c.color)+'" aria-label="Color"></button>').join("")+'</div><div class="pal-t">Icono</div><div class="icons" style="--cat:'+c.color+'">'+Object.keys(ICONS).map(k => '<button type="button" data-ico="'+k+'" data-for="'+c.id+'" aria-pressed="'+(k===c.icon)+'" aria-label="Icono '+k+'">'+icon(k)+'</button>').join("")+'</div>' : '')
       +'<button class="subtoggle" type="button" data-subs="'+c.id+'" aria-expanded="'+(subsOpen===c.id)+'">'+(subsOpen===c.id?'▾ ':'▸ ')+(c.subs.length ? 'Subcategorías: '+c.subs.map(s=>esc(s.name)).join(", ") : 'Añadir subcategorías')+'</button>'
       +(subsOpen===c.id ? '<div class="subedit">'+c.subs.map(s => '<div class="catrow"><input class="nmi" type="text" id="sn-'+c.id+'-'+s.id+'" data-subn="'+s.id+'" data-of="'+c.id+'" value="'+esc(s.name)+'" maxlength="24" aria-label="Nombre de subcategoría"><button class="x" type="button" data-delsub="'+s.id+'" data-of="'+c.id+'" aria-label="Borrar '+esc(s.name)+'">'+I_X+'</button></div>').join("")
         +'<div class="catrow"><input class="nmi" type="text" id="ns-'+c.id+'" maxlength="24" placeholder="Nueva subcategoría"><button class="btn" type="button" data-addsub="'+c.id+'">Añadir</button></div></div>' : '')
@@ -1015,9 +1117,8 @@ function renderSettings(){
   const fx = state.fixed.slice().sort((a,b)=>a.day-b.day);
   $view.innerHTML =
     '<div class="eyebrow">Tu app</div><h1 class="hday">Ajustes</h1><div class="rule"></div>'
-   +'<div class="card"><h2>Presupuesto semanal total</h2><p>Un límite para todo lo que gastas de lunes a domingo. Los gastos fijos (alquiler, suscripciones…) no cuentan.</p>'
-   +'<div class="gsave"><input type="text" inputmode="decimal" id="wb" value="'+toInput(state.weekBudget||0)+'" placeholder="Sin límite" aria-label="Presupuesto semanal total en euros"><span style="font-family:var(--f-display);font-size:22px">€ / semana</span></div></div>'
-   +'<div class="card"><h2>Categorías de gasto</h2><p>Toca el color para cambiarlo y «Subcategorías» para personalizarlas. El límite semanal es opcional.</p>'+catBlock("g")+'</div>'
+   +'<div class="card"><h2>Tipos de gasto</h2><ul class="kindlist"><li><b>Variable:</b> el día a día (comida, ocio…). Es lo único que cuenta para el presupuesto semanal.</li><li><b>Planificado:</b> gastos que ya esperas pero sin fecha fija, como el abono de transporte, el seguro o la ITV. Se apuntan a mano y no rompen el presupuesto.</li><li><b>Fijo mensual:</b> se apunta solo cada mes (alquiler, gimnasio…). Tampoco cuenta.</li></ul></div>'
+   +'<div class="card"><h2>Categorías de gasto</h2><p>Toca el icono para cambiar color e icono, y «Subcategorías» para personalizarlas. Pon un límite semanal solo en las categorías que quieras vigilar: la suma es tu presupuesto semanal.</p>'+catBlock("g")+'<p class="tot">Presupuesto semanal: <b>'+(totalBudget() ? money0(totalBudget()) : 'sin límites')+'</b>'+(totalBudget() ? ' (suma de los límites)' : '')+'</p></div>'
    +'<div class="card"><h2>Categorías de ingreso</h2>'+catBlock("i")+'</div>'
    +'<div class="card"><h2>Gastos e ingresos fijos</h2><p>Se apuntan solos cada mes en el día que elijas: alquiler, nómina, suscripciones…</p>'
    +(fx.length ? '<div class="catlist">'+fx.map(f => { const c = catOf(f.cat), sn = subOf(f.cat,f.sub); return '<button type="button" class="fxrow" data-fx="'+f.id+'" style="--cat:'+c.color+'"><span class="dot"></span><span class="n">'+esc(f.note||sn||c.name)+'<small>Día '+f.day+' de cada mes · '+esc(c.name)+(sn?' › '+esc(sn):'')+(f.ex?' · Ejemplo':'')+'</small></span><span class="a'+(f.type==="i"?' in':'')+'">'+(f.type==="i"?'+':'−')+money(f.amount)+'</span></button>'; }).join("")+'</div>' : '')
@@ -1035,11 +1136,11 @@ function renderSettings(){
       : '<button class="btn danger" type="button" id="wipe">Borrar todos los datos</button>')+'</div>';
   const on = (id,fn) => { const el = document.getElementById(id); if (el) el.addEventListener("click", fn); };
   const all = (sel,fn,ev) => $view.querySelectorAll(sel).forEach(el => el.addEventListener(ev||"click", () => fn(el)));
-  document.getElementById("wb").addEventListener("change", e => { state.weekBudget = parseAmount(e.target.value); e.target.value = toInput(state.weekBudget); save(); toast(state.weekBudget ? "Presupuesto semanal: "+money0(state.weekBudget) : "Sin presupuesto semanal total"); });
   all("[data-fx]", b => openFixed(state.fixed.find(f => f.id===b.dataset.fx)));
   on("addFx", () => openFixed(null));
   all("[data-pal]", b => { paletteFor = paletteFor===b.dataset.pal ? null : b.dataset.pal; render(); });
-  all("[data-col]", b => { const c = state.cats.find(x => x.id===b.dataset.for); if (c){ c.color = b.dataset.col; save(); } paletteFor = null; render(); });
+  all("[data-col]", b => { const c = state.cats.find(x => x.id===b.dataset.for); if (c){ c.color = b.dataset.col; save(); } render(); });
+  all("[data-ico]", b => { const c = state.cats.find(x => x.id===b.dataset.for); if (c){ c.icon = b.dataset.ico; save(); } render(); });
   all("[data-cat]", inp => { const c = state.cats.find(x => x.id===inp.dataset.cat), v = inp.value.trim(); if (c && v){ c.name = v; save(); toast("Nombre guardado"); } else if (c) inp.value = c.name; }, "change");
   all("[data-bud]", inp => { const c = state.cats.find(x => x.id===inp.dataset.bud); if (!c) return; c.budget = parseAmount(inp.value); inp.value = toInput(c.budget); save(); toast(c.budget ? "Límite de "+c.name+": "+money0(c.budget)+" a la semana" : "Sin límite para "+c.name); }, "change");
   all("[data-subs]", b => { subsOpen = subsOpen===b.dataset.subs ? null : b.dataset.subs; render(); });
@@ -1058,7 +1159,7 @@ function renderSettings(){
   });
   $view.querySelectorAll("[data-addcat]").forEach(b => {
     const type = b.dataset.addcat, inp = document.getElementById("new-"+type);
-    const add = () => { const v = inp.value.trim(); if (!v) { inp.focus(); return; } const used = state.cats.filter(c=>c.type===type).map(c => c.color); const id = uid(); state.cats.push({id, name:v, type, color: COLORS.find(x => !used.includes(x)) || COLORS[0], budget:0, subs:[]}); subsOpen = id; save(); render(); toast("Categoría añadida: ahora puedes ponerle subcategorías"); };
+    const add = () => { const v = inp.value.trim(); if (!v) { inp.focus(); return; } const used = state.cats.filter(c=>c.type===type).map(c => c.color); const id = uid(); state.cats.push({id, name:v, type, color: COLORS.find(x => !used.includes(x)) || COLORS[0], budget:0, subs:[], icon: type==="g" ? "etiqueta" : "monedas"}); subsOpen = id; save(); render(); toast("Categoría añadida: ahora puedes ponerle subcategorías"); };
     b.addEventListener("click", add); inp.addEventListener("keydown", e => { if (e.key==="Enter") { e.preventDefault(); add(); } });
   });
   const json = () => JSON.stringify({app:"mis-cuentas",version:2,exported:new Date().toISOString(),cats:state.cats,fixed:state.fixed,goals:state.goals,challenges:state.challenges,weekBudget:state.weekBudget||0,movs:state.movs},null,1);
@@ -1085,7 +1186,7 @@ function restore(txt){
 /* ---------- selector de categoría y subcategoría ---------- */
 const $sheet = document.getElementById("sheetRoot");
 function catChips(type, cur){
-  return state.cats.filter(c => c.type===type).map(c => '<input type="radio" name="fCat" id="fc-'+c.id+'" value="'+c.id+'"'+(cur===c.id?' checked':'')+' style="--cat:'+c.color+'"><label for="fc-'+c.id+'" style="--cat:'+c.color+'"><i></i>'+esc(c.name)+'</label>').join("");
+  return state.cats.filter(c => c.type===type).map(c => '<input type="radio" name="fCat" id="fc-'+c.id+'" value="'+c.id+'"'+(cur===c.id?' checked':'')+' style="--cat:'+c.color+'"><label for="fc-'+c.id+'" style="--cat:'+c.color+'"><span class="ci">'+icon(c.icon)+'</span>'+esc(c.name)+'</label>').join("");
 }
 function subChips(catId, cur){
   const c = catOf(catId);
@@ -1113,18 +1214,30 @@ function openSheet(m, date, preset){
   let type = editing ? m.type : (p.type || "g");
   $sheet.innerHTML = '<div class="scrim" id="scrim"><form class="sheet" id="form" role="dialog" aria-modal="true" aria-labelledby="sT" novalidate>'
     +'<div class="grab"></div><h2 id="sT">'+(editing?'Editar movimiento':'Nuevo movimiento')+'</h2>'
-    + segHTML(type) + amountHTML(editing ? m.amount : p.amount)
+    + segHTML(type) + amountHTML(editing ? m.amount : p.amount) + '<div id="kindBox"></div>'
     +'<div class="field"><label for="fNote">Concepto (opcional)</label><input id="fNote" maxlength="60" autocomplete="off" placeholder="Mercadona" value="'+esc(editing ? (m.note||'') : (p.note||''))+'"><div class="sugg" id="sugg" hidden></div></div>'
     +'<div class="field"><span class="lbl">Categoría</span><div class="cats" id="catBox" role="radiogroup"></div></div><div id="subBox"></div>'
     +'<div class="field"><label for="fDate">Fecha</label><input id="fDate" type="date" required value="'+(editing?m.date:date)+'"></div>'
     +'<div class="field"><label for="fTag">Etiquetas (opcional)</label><div class="tagbox" id="tagBox"></div><div class="tsug" id="tSug"></div></div>'
-    +(editing ? (m.fixed?'<p class="hint">Este movimiento viene de un fijo. Los cambios solo afectan a este mes; para cambiar el fijo, ve a Ajustes.</p>':'')
-      : '<label class="switch" for="fRep"><span><b>Repetir cada mes</b><small>Se apuntará solo el mismo día de cada mes</small></span><input type="checkbox" id="fRep"></label>')
     +'<div class="actions">'+(editing?'<button class="btn danger" type="button" id="fDel">Eliminar</button>':'')+'<span class="grow"></span><button class="btn" type="button" id="fCancel">Cancelar</button><button class="btn primary" type="submit">Guardar</button></div>'
     +'<div id="delBox"></div></form></div>';
   const amt = document.getElementById("fAmt"), err = document.getElementById("amtErr"), form = document.getElementById("form"), note = document.getElementById("fNote"), sugg = document.getElementById("sugg");
   const picker = catPicker(form, () => type);
   picker.draw(editing ? m.cat : p.cat, editing ? m.sub : p.sub);
+  let kind = editing ? (m.plan ? "plan" : "var") : (p.plan ? "plan" : "var");
+  const KH = {var:"Cuenta para tu presupuesto semanal.", plan:"No cuenta para el presupuesto semanal. Para gastos que ya esperas pero sin fecha fija: abono de transporte, seguro, ITV…", fix:"Se apuntará solo el mismo día de cada mes y no cuenta para el presupuesto semanal.", once:"Un ingreso de una sola vez.", fixi:"Se apuntará solo el mismo día de cada mes."};
+  const drawKind = () => {
+    const box = document.getElementById("kindBox");
+    if (editing && m.fixed) { box.innerHTML = '<p class="hint khint">Este movimiento viene de un fijo. Los cambios solo afectan a este mes; para cambiar el fijo, ve a Ajustes.</p>'; return; }
+    if (type==="i" && kind==="plan") kind = "var";
+    const opts = type==="g" ? [["var","Variable"],["plan","Planificado"]] : [["var","Puntual"]];
+    if (!editing) opts.push(["fix","Fijo mensual"]);
+    if (opts.length < 2) { box.innerHTML = ""; return; }
+    const hint = type==="i" ? (kind==="fix" ? KH.fixi : KH.once) : KH[kind];
+    box.innerHTML = '<div class="seg kseg'+(opts.length===3?' three':'')+'" role="radiogroup" aria-label="Tipo de gasto">'+opts.map(([v,l]) => '<input type="radio" name="fKind" id="k-'+v+'" value="'+v+'"'+(kind===v?' checked':'')+'><label for="k-'+v+'">'+l+'</label>').join("")+'</div><p class="hint khint">'+hint+'</p>';
+    box.querySelectorAll('input[name=fKind]').forEach(r => r.addEventListener("change", () => { kind = r.value; drawKind(); }));
+  };
+  drawKind();
   setTimeout(() => { if (!editing) { amt.focus(); amt.select(); } }, 80);
   /* Etiquetas */
   let tags = editing ? (m.tags||[]).slice() : [];
@@ -1145,13 +1258,14 @@ function openSheet(m, date, preset){
   };
   drawTags(false);
   amt.addEventListener("input", () => { err.hidden = true; });
-  form.querySelectorAll('input[name=fType]').forEach(r => r.addEventListener("change", () => { type = r.value; picker.draw(null, ""); }));
+  form.querySelectorAll('input[name=fType]').forEach(r => r.addEventListener("change", () => { type = r.value; picker.draw(null, ""); drawKind(); }));
   /* Conceptos recordados */
   const hist = history();
   const apply = h => {
     note.value = h.note; type = h.type;
     form.querySelector(h.type==="i" ? "#tI" : "#tG").checked = true;
     picker.draw(h.cat, h.sub);
+    if (kind !== "fix") kind = h.plan ? "plan" : "var"; drawKind();
     if (!parseAmount(amt.value)) amt.value = toInput(h.amount);
     sugg.hidden = true; sugg.innerHTML = "";
   };
@@ -1172,17 +1286,17 @@ function openSheet(m, date, preset){
     const d = document.getElementById("fDate").value; if (!d) return;
     const {cat, sub} = picker.value(), noteV = note.value.trim();
     const pend = document.getElementById("fTag"); if (pend && pend.value.trim()) addTag(pend.value);
-    const own = editing && m.type==="g" && !m.fixed && monday(m.date)===monday(d) ? m.amount : 0;
-    const beforeCat = spentWeek(cat, d) - (editing && m.cat===cat ? own : 0), beforeAll = spentWeek(null, d) - own;
-    const rep = !editing && document.getElementById("fRep").checked;
+    const own = editing && m.type==="g" && !m.fixed && !m.plan && monday(m.date)===monday(d) ? m.amount : 0;
+    const beforeCat = spentWeek(cat, d) - (editing && m.cat===cat ? own : 0), beforeAll = spentBudgeted(d) - (editing && catOf(m.cat).budget > 0 ? own : 0);
+    const rep = !editing && kind==="fix", plan = type==="g" && kind==="plan";
     if (rep) { state.fixed.push({id:uid(), type, amount, cat, sub, note:noteV, day:parse(d).getDate(), start:ym(d), gen:[]}); runFixed(); }
-    else if (editing) { Object.assign(m, {type, amount, cat, sub, date:d, note:noteV, tags:tags.slice()}); delete m.ex; }
-    else state.movs.push({id:uid(), type, amount, cat, sub, date:d, note:noteV, tags:tags.slice()});
+    else if (editing) { Object.assign(m, {type, amount, cat, sub, date:d, note:noteV, tags:tags.slice(), plan}); delete m.ex; if (!plan) delete m.plan; }
+    else { const nm = {id:uid(), type, amount, cat, sub, date:d, note:noteV, tags:tags.slice()}; if (plan) nm.plan = true; state.movs.push(nm); }
     save(); closeSheet(); render();
     if (checkChallenges(true)) return;
-    const msg = type==="g" && !rep && !(editing && m.fixed) ? budgetAlert(cat, d, beforeCat, beforeAll) : null;
+    const msg = type==="g" && !rep && !plan && !(editing && m.fixed) ? budgetAlert(cat, d, beforeCat, beforeAll) : null;
     if (msg) toast(msg[0], null, msg[1]);
-    else toast(rep ? "Fijo creado: se apuntará el día "+parse(d).getDate()+" de cada mes" : editing ? "Movimiento guardado" : (type==="g"?"Gasto":"Ingreso")+" de "+money(amount)+" apuntado");
+    else toast(rep ? "Fijo creado: se apuntará el día "+parse(d).getDate()+" de cada mes" : editing ? "Movimiento guardado" : (type==="g"?(plan?"Gasto planificado":"Gasto"):"Ingreso")+" de "+money(amount)+" apuntado"+(plan?" (fuera del presupuesto)":""));
   });
   const del = document.getElementById("fDel");
   if (del) del.addEventListener("click", () => {
@@ -1193,7 +1307,7 @@ function openSheet(m, date, preset){
   });
 }
 function budgetAlert(cat, date, beforeCat, beforeAll){
-  const c = catOf(cat), nowC = spentWeek(cat, date), nowA = spentWeek(null, date), B = state.weekBudget;
+  const c = catOf(cat), nowC = spentWeek(cat, date), nowA = spentBudgeted(date), B = totalBudget(); if (!c.budget) return null;
   if (c.budget && nowC > c.budget && beforeCat <= c.budget) return ["Te has pasado del límite semanal de "+c.name+" ("+money0(c.budget)+")", true];
   if (B && nowA > B && beforeAll <= B) return ["Te has pasado del presupuesto semanal ("+money0(B)+")", true];
   if (c.budget && nowC >= c.budget*.8 && beforeCat < c.budget*.8 && nowC <= c.budget) return ["Llevas el "+Math.round(nowC/c.budget*100)+" % del límite semanal de "+c.name, false];
